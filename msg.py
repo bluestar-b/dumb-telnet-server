@@ -13,12 +13,12 @@ def handle_client(client_socket, addr):
     try:
         clients.append(client_socket)
 
-        client_address = f"{addr[0]}:{addr[1]}"
+        client_address = f"{addr[0]}"
         print(
             f"Client {client_address} connected. Total clients: {len(clients)}")
 
         while True:
-            data = client_socket.recv(1024)
+            data = client_socket.recv(4096)
             if not data:
                 break
 
